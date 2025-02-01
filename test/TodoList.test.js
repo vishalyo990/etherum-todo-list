@@ -1,3 +1,5 @@
+const { assert } = require("chai")
+
 const TodoList = artifacts.require('./TodoList.sol')
 
 contract('TodoList', (accounts) => {
@@ -20,6 +22,16 @@ contract('TodoList', (accounts) => {
     assert.equal(task.content, 'This is your first task, it is create using constructor.')
     assert.equal(task.completed, false)
     assert.equal(taskCount.toNumber(), 1)
+  })
+
+  it('create tasks', async () => {
+    const result = await this.todoList.createTask('Create a new task for testing')
+    const taskCount = await this.todoList.taskCount()
+    assert.equal(taskCount, 2)
+    const event = result.logs[0].args
+    assert.equal(event.id.toNumber(), 2)
+    assert.equal(event.content, 'Create a new task for testing')
+    assert.equal(event.completed, false)
   })
 
 })
