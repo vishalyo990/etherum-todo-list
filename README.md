@@ -4,3 +4,4 @@ Bootcamp Ethereum TodoList App
 `truffle complie`
 `truffle migrate`
 `npm run dev`
+`truffle migrate --reset`

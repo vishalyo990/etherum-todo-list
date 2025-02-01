@@ -130,6 +130,13 @@ App = {
     window.location.reload()
   },
 
+  toggleCompleted: async (e) => {
+    App.setLoading(true)
+    const taskId = e.target.name
+    await App.todoList.toggleCompleted(taskId)
+    window.location.reload()
+  },
+
 }
 
 $(() => {
