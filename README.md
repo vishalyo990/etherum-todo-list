@@ -5,3 +5,5 @@ Bootcamp Ethereum TodoList App
 `truffle migrate`
 `npm run dev`
 `truffle migrate --reset`
+
+![plot](Ethereum%20TodoList.png)
